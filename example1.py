@@ -5,11 +5,11 @@
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
-
+import random
 team_name = 'E1'
-strategy_name = 'Betray'
-strategy_description = 'Always betray.'
-    
+strategy_name = 'Random'
+strategy_description = 'Random Selection'
+
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
     
@@ -20,6 +20,7 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    
-    #This example player always betrays.      
-    return 'b'
+    if random.randint(1,2) == 1:
+      return 'c'
+    else:
+      return 'b'

@@ -7,8 +7,8 @@
 ####
 
 team_name = 'E2'
-strategy_name = 'Alternate'
-strategy_description = 'Collude, then alternate.'
+strategy_name = 'Pattern Finder'
+strategy_description = 'Sees if theres a pattern in the opponents move and responds'
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -20,9 +20,14 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    # This player colludes on even numbered rounds (first round is round #0).
-    if len(my_history)%2 == 0:
-        return 'c'
-    else:
-        return 'b'
-    
+    #This attempts to find any variating patterns in their responses, and respond accordingly
+    if 'bcbcbc' in their_history:
+      return 'b'
+    elif 'cbcbcb' in their_history:
+      return 'c'
+    elif 'bbbbb' in their_history:
+      return 'b'
+    elif 'ccccc' in their_history:
+      return 'c'
+    else: 
+      return 'c'
