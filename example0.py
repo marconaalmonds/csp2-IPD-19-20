@@ -20,8 +20,10 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    #Ths betrays on even turns, and colludes on odd turns
+    #Ths betrays on even turns, and colludes on odd turns, but betrays on multiples of 5 
     if len(my_history)%2 == 0:
+      return 'b'
+    elif len(my_history)%5 == 0:
       return 'b'
     else:
       return 'c'
